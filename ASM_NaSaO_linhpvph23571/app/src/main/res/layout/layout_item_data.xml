@@ -28,17 +28,18 @@
             android:id="@+id/img"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_error_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.126" />
 
         <TextView
             android:id="@+id/tv_content"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginStart="10dp"
@@ -50,6 +51,31 @@
             app:layout_constraintStart_toEndOf="@+id/img"
             app:layout_constraintTop_toTopOf="@+id/img"
             app:layout_constraintVertical_bias="0.022" />
+
+        <ImageView
+            android:id="@+id/imgxoa"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_delete_forever_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toEndOf="@+id/tv_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <ImageView
+            android:id="@+id/imgsua"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.997"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgxoa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

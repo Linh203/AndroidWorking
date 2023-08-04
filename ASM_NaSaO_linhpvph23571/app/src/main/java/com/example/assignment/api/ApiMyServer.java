@@ -1,6 +1,7 @@
 package com.example.assignment.api;
 
 import com.example.assignment.Config;
+import com.example.assignment.models.ApiData;
 import com.example.assignment.models.HackNasa;
 import com.example.assignment.models.ResponeDataFromMyServer;
 import com.google.gson.Gson;
@@ -10,8 +11,11 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface ApiMyServer {
     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
@@ -24,7 +28,13 @@ public interface ApiMyServer {
 
     @POST("api/add")
     Call<Void> postData(@Body HackNasa data);
-
+    @GET("api/detail/{id}")
+    Call<ApiData> getDataDetail(@Path("id")String id);
     @GET("api/")
     Call<ResponeDataFromMyServer> getData();
+    @PUT("api/update/{id}")
+    Call<Void> updateData(@Path("id") String id, @Body HackNasa data);
+
+    @DELETE("api/delete/{id}")
+    Call<Void> deleteData(@Path("id") String id);
 }

@@ -48,7 +48,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private TextView tvServerName, tvServerPort, tvStatus,tvReceivedMessage,tvshowtinnhan;
     private Button bntSend;
-    private String serverIP = "10.241.62.8"; // ĐỊA CHỈ IP MÁY
+    private String serverIP = "192.168.0.105"; // ĐỊA CHỈ IP MÁY
     private int serverPort = 1234; // PORT
     private ServerThread serverThread;
     private EditText edMessage;
