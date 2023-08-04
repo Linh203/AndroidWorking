@@ -48,7 +48,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private TextView tvServerName, tvServerPort, tvStatus,tvReceivedMessage,tvshowtinnhan;
     private Button bntSend;
-    private String serverIP = "192.168.0.103"; // ĐỊA CHỈ IP MÁY
+    private String serverIP = "10.241.62.8"; // ĐỊA CHỈ IP MÁY
     private int serverPort = 1234; // PORT
     private ServerThread serverThread;
     private EditText edMessage;
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Hiển thị địa chỉ IP và cổng của Server lên giao diện
 
-        tvServerName.setText(serverIP);
-        tvServerPort.setText(String.valueOf(serverPort));
+        tvServerName.setText("Sever IP : "+serverIP);
+        tvServerPort.setText("Sever Port : "+String.valueOf(serverPort));
 
         if(user==null){
             Intent intent=new Intent(MainActivity.this,Login.class);
