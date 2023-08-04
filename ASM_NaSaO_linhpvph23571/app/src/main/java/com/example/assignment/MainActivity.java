@@ -39,13 +39,14 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tvServerName, tvServerPort, tvStatus,tvReceivedMessage;
+    private TextView tvServerName, tvServerPort, tvStatus,tvReceivedMessage,tvshowtinnhan;
     private Button bntSend;
     private String serverIP = "192.168.0.103"; // ĐỊA CHỈ IP MÁY
     private int serverPort = 1234; // PORT
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         tvServerName = findViewById(R.id.tvsevername);
         tvServerPort = findViewById(R.id.tvServerpory);
         tvStatus = findViewById(R.id.tvstatus);
-        tvReceivedMessage = findViewById(R.id.tv_nhantinnhan);
+        tvReceivedMessage = findViewById(R.id.tvshotinhan);
+
 
 
         serverThread = new ServerThread();
@@ -116,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        Random random=new Random();
 
         List<String> days = new ArrayList<>();
 
@@ -133,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = currentYear; i >= currentYear - 100; i--) {
             years.add(String.valueOf(i));
         }
+
         days.add(0, "days");
         months.add(0, "months");
         years.add(0, "years");
@@ -171,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<HackNasa> call, Response<HackNasa> response) {
                 hackNasa = response.body();
+                
                 binding.layoutShowData.setVisibility(View.VISIBLE);
                 binding.tvTitle.setText(hackNasa.getTitle());
                 binding.tvDate.setText(hackNasa.getDate());
@@ -212,7 +217,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 binding.tvNotification.setText("push data to my server successfully");
+
                 binding.tvNotification.setTextColor(Color.parseColor("#198754"));
+                String messageToSend = "1";
+                if (!messageToSend.isEmpty() && serverThread != null) {
+                    serverThread.sendMessageToClients(messageToSend);
+                }
             }
 
             @Override
@@ -352,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 // Set tin nhắn lên texview giao diện
-                                tvReceivedMessage.setText("Tin nhắn từ client: " + finalMessage);
+                                tvReceivedMessage.setText("Thông Báo từ client: " + finalMessage);
                                 // thông báo co tin nhắn mới
                                 final Dialog dialog = new Dialog(MainActivity.this);
                                 // set layout dialog
@@ -372,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
                                             dialog.dismiss();
                                         }
                                     }
-                                }, 4000);
+                                }, 5000);
                             }
                         });
                     }
@@ -382,6 +392,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
 

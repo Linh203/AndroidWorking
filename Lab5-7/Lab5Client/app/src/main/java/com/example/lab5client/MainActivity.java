@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                tvshowtinnhan.setText("Tin nhắn từ sever: " + finalMessage);
+                                tvshowtinnhan.setText("Thông Báo từ sever: Yêu cầu lưu " + finalMessage+" ảnh !");
                                 // thông báo co tin nhắn mới
                                 final Dialog dialog = new Dialog(MainActivity.this);
                                 // set layout dialog
@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
                                 tvmes.setText(""+finalMessage);
                                 dialog.setCancelable(true);
                                 // show dialog
-                                dialog.show();
-
+//                                dialog.show();
+                                sendMessageToServer("Đã lưu thêm "+ finalMessage +" ảnh vào sever !");
                                 // set dialog sau 4s thì ẩn
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
