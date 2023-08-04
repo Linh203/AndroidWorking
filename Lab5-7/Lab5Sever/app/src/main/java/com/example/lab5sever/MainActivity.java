@@ -40,7 +40,7 @@ import java.util.ArrayList;
 
 public class  MainActivity extends AppCompatActivity {
     private TextView tvServerName, tvServerPort, tvStatus, tvReceivedMessage;
-    private String serverIP = "192.168.0.105"; // ĐỊA CHỈ IP MÁY
+    private String serverIP = "192.168.0.103"; // ĐỊA CHỈ IP MÁY
     private int serverPort = 1234; // PORT
     private Button bntStart, bntStop, bntSend;
     private EditText edMessage;
@@ -69,13 +69,15 @@ public class  MainActivity extends AppCompatActivity {
         tvServerName.setText(serverIP);
         tvServerPort.setText(String.valueOf(serverPort));
 
-
+        serverThread = new ServerThread();
+        Toast.makeText(this, "SERVER ĐÃ CHẠY", Toast.LENGTH_SHORT).show();
+        serverThread.startServer();
 
     }
     public void onClickStartServe(View view) {
         serverThread = new ServerThread();
-        Toast.makeText(this, "SERVER ĐÃ CHẠY", Toast.LENGTH_SHORT).show();
-        serverThread.startServer();
+        Toast.makeText(this, "SERVER ĐÃ Dừng", Toast.LENGTH_SHORT).show();
+        serverThread.stopServer();
     }
     // Xử lý sự kiện nút "Dừng Server"
 

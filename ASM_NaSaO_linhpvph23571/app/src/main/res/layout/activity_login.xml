@@ -67,15 +67,6 @@
         android:textColor="@color/white"
         />
     <Button
-        android:id="@+id/socket"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/login"
-        android:layout_marginBottom="10dp"
-        android:text="Mở Sever Kết Nối"
-        android:textColor="@color/white"
-        />
-    <Button
         android:id="@+id/regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

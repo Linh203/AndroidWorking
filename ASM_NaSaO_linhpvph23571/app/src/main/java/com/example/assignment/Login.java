@@ -46,16 +46,9 @@ public class Login extends AppCompatActivity {
         editpass = findViewById(R.id.pass);
         login = findViewById(R.id.login);
         resgis = findViewById(R.id.regis);
-        socket = findViewById(R.id.socket);
 
-        socket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(Login.this,Socket.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
 
         resgis.setOnClickListener(new View.OnClickListener() {
             @Override

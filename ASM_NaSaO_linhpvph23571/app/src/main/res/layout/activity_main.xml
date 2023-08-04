@@ -8,11 +8,68 @@
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+
+       <TextView
+           android:id="@+id/tvstatus"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="200dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="190dp"
+           android:text="NOT YES"
+           android:textColor="#FF0000"
+           android:textStyle="italic"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="1.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <TextView
+           android:id="@+id/tvsevername"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_marginTop="8dp"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="Server IP: "
+           android:textColor="@color/black"
+           android:textSize="20sp"
+           android:textStyle="italic"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/tvstatus" />
+
+       <TextView
+           android:id="@+id/tvServerpory"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_marginTop="10dp"
+           android:gravity="center_vertical"
+           android:paddingLeft="10dp"
+           android:text="Sever PORT: "
+           android:textColor="@color/black"
+           android:textSize="20sp"
+           android:textStyle="italic"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/tvsevername" />
+
+       <TextView
+           android:id="@+id/tv_nhantinnhan"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:text="Tin nhắn từ client:"
+           android:textColor="#03A9F4"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/tvServerpory" />
        <TextView
            android:id="@+id/tv_notification"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_marginTop="96dp"
+           android:layout_marginTop="190dp"
            android:padding="10dp"
            android:textSize="20sp"
            app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +81,7 @@
            android:id="@+id/btn_get_data_form_nasa"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_marginTop="8dp"
+           android:layout_marginTop="80dp"
            android:text="Get data from Nasa"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.493"
@@ -62,23 +119,24 @@
            app:layout_constraintHorizontal_bias="0.497"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/btn_get_data_form_my_server" />
+
        <TextView
            android:id="@+id/userdetail"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_marginTop="20dp"
+           android:layout_marginTop="10dp"
            android:padding="10dp"
            android:textSize="20sp"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.497"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/logout"
-/>
+           app:layout_constraintTop_toBottomOf="@+id/logout" />
+
        <Spinner
            android:id="@+id/spn_year"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_marginTop="64dp"
+           android:layout_marginTop="250dp"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,9 +162,11 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_margin="20dp"
+           android:layout_marginTop="800dp"
            app:cardCornerRadius="20dp"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.52"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/userdetail">
 
