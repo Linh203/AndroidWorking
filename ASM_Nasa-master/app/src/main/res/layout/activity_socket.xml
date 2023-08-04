@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Socket">
+
+    <TextView
+        android:id="@+id/tvstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOT YES"
+        android:textColor="#FF0000"
+        android:layout_marginBottom="20dp"
+        android:textStyle="italic" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:id="@+id/tvsevername"
+        android:textStyle="italic"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:text="Server IP: "
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:text="Sever PORT: "
+        android:id="@+id/tvServerpory"
+        />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bntstart"
+            android:onClick="onClickStartServe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="2dp"
+            android:backgroundTint="#FF0000"
+            android:textColor="@color/white"
+            android:text="START" />
+        <Button
+            android:id="@+id/bntstop"
+            android:onClick="onClickStopServe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:layout_marginLeft="2dp"
+            android:backgroundTint="#FFC800"
+            android:text="STOP" />
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:hint="Tin nhắn ...."
+        app:passwordToggleEnabled="true"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtinhandi"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>\
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tin nhắn từ client:"
+        android:gravity="center"
+        android:id="@+id/tv_nhantinnhan"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:textColor="#03A9F4"
+        android:layout_marginEnd="40dp"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00FFE1"
+        android:text="Sent"
+        android:id="@+id/bnt_sent"
+        android:onClick="onClickSend"
+        android:textColor="@color/white" />
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@null"
+        android:text="Back" />
+</LinearLayout>
