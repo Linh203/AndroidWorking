@@ -2,10 +2,14 @@ package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.test.databinding.ActivityMainBinding;
@@ -24,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private List<Comic> comics;
     private Comic comic;
     private Adapter adapter;
+//    private RadioGroup radioGroup = findViewById(R.id.radiogroup);
+//    private RadioButton radioButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,16 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         initUI();
-
     }
+
 
     private void initUI() {
         adapter = new Adapter(this);
         getAllComic();
         //cop tu adapter
-        binding.fabAdd.setOnClickListener(view->{
+        binding.fabAdd.setOnClickListener(view -> {
             dialogAdd();
         });
     }
@@ -55,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         assert window != null;
         window.setBackgroundDrawableResource(R.color.white);
 
-        binding.btnCancel.setOnClickListener(v->{
+        binding.btnCancel.setOnClickListener(v -> {
             binding.edtTitle.setText("");
             binding.edtContent.setText("");
             binding.edtImg.setText("");
@@ -63,21 +70,26 @@ public class MainActivity extends AppCompatActivity {
             binding.edtEndDate.setText("");
             alertDialog.dismiss();
         });
-        binding.btnSave.setOnClickListener(v->{
+        binding.btnSave.setOnClickListener(v -> {
             String title = binding.edtTitle.getText().toString();
             int status = Integer.parseInt(binding.edtStatus.getText().toString());
             String img = binding.edtImg.getText().toString();
             String content = binding.edtContent.getText().toString();
             String enddate = binding.edtEndDate.getText().toString();
-            String formatDate= null;
+            String formatDate = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 LocalDate currentDate = LocalDate.now();
                 DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 formatDate = currentDate.format(dateTimeFormatter);
             }
-            comic = new Comic("", title, content, enddate, status, img , formatDate);
-            addComic(comic);
-            alertDialog.dismiss();
+            if(status!=0&&status!=1){
+                binding.edtStatus.setText("");
+                Toast.makeText(this, "Chọn 1 hoặc 0", Toast.LENGTH_SHORT).show();
+            }else {
+                comic = new Comic("", title, content, enddate, status, img, formatDate);
+                addComic(comic);
+                alertDialog.dismiss();
+            }
         });
 
         alertDialog.show();
@@ -98,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -109,15 +122,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Comic>> call, Response<List<Comic>> response) {
                 comics = response.body();
-                binding.tvQuantity.setText("Total quantity: "+comics.size());
+                binding.tvQuantity.setText("Total quantity: " + comics.size());
                 adapter.setList(comics);
                 binding.rcv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onFailure(Call<List<Comic>> call, Throwable t) {
 
             }
         });
     }
+
+
 }

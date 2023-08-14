@@ -31,7 +31,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ComicViewHolder> {
     private List<Comic> list;
     private List<Comic> fulList;
     private Comic comic;
-    private MainActivity mainActivity;
+
 
     public Adapter(Context context) {
         this.context = context;
@@ -57,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ComicViewHolder> {
         if (current == null) {
             return;
         }
-        Glide.with(context).load(current.getImage()).error(R.drawable.i8).into(holder.art);
+    //    Glide.with(context).load(current.getImage()).error(R.drawable.i8).into(holder.art);
         holder.title.setText(current.getTitle());
         holder.sua.setOnClickListener(new View.OnClickListener() {
 
@@ -96,10 +96,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ComicViewHolder> {
         assert window != null;
         window.setBackgroundDrawableResource(R.color.white);
 
-        Glide.with(context).load(comic.getImage()).error(R.drawable.i8).into(binding.imgArt);
+     //   Glide.with(context).load(comic.getImage()).error(R.drawable.i8).into(binding.imgArt);
         binding.tvTitle.setText(comic.getTitle());
         binding.tvContent.setText(comic.getContent());
-        binding.tvStatus.setText(String.valueOf(comic.getStatus()));
+        if(comic.getStatus()==1){
+            binding.tvStatus.setText("Hoàn Thành");
+        }else {
+            binding.tvStatus.setText("Chưa Hoàn Thành");
+
+        }
         binding.tvCreateDate.setText(comic.getCreatedAt());
         binding.tvEnddate.setText(comic.getEnd_date());
 

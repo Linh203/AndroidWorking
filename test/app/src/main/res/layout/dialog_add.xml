@@ -75,9 +75,36 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Status"
-                android:inputType="number"
-                android:imeOptions="actionDone" />
+                android:hint="Status (Nhập 1 hoặc 0)"
+                android:imeOptions="actionDone"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 là hoàn thành, 1 là chưa hoàn thành" />
+            <!--            <RadioGroup-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                android:id="@+id/radiogroup"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+            <!--                <RadioButton-->
+            <!--                    android:layout_marginRight="10dp"-->
+            <!--                    android:id="@+id/radiohoanthanh"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Hoàn Thành"/>-->
+            <!--                <RadioButton-->
+            <!--                    android:id="@+id/radiochuahoanthanh"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Chưa Hoàn Thành"/>-->
+            <!--            </RadioGroup>-->
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,8 +121,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Image"
-                android:inputType="textMultiLine|textCapSentences"
-                android:imeOptions="actionDone" />
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine|textCapSentences" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
